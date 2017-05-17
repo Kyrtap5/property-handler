@@ -26,23 +26,14 @@ public class PropertyHandler {
     public void setProperty(String key, String value) {
         try {
             //Set property
-            outStream = new FileOutputStream(fileName);
-            properties.setProperty(key, value);
-            properties.store(outStream, null);
-        } catch (FileNotFoundException notFound) {
-            //File does not exist: print error message and write new file
-            System.err.println("Error while writing property: " + notFound.toString() + ". Creating new file named " + fileName + ".");
-            try {
+            if (!propertyFileExists()) {
                 File newFile = new File(fileName);
                 newFile.createNewFile();
                 //Continue with the recently created file
                 outStream = new FileOutputStream(newFile, false);
-                properties.setProperty(key, value);
-                properties.store(outStream, null);
-            } catch (IOException ioException) {
-                System.err.println("Error while writing property: " + ioException.toString());
-                ioException.printStackTrace();
-            }
+            } else outStream = new FileOutputStream(fileName);
+            properties.setProperty(key, value);
+            properties.store(outStream, null);
         } catch (IOException ioException) {
             System.err.println("Error while writing property: " + ioException.toString());
             ioException.printStackTrace();
@@ -69,24 +60,14 @@ public class PropertyHandler {
         String ret = null;
         try {
             //Get the value from the properties file
-            inStream = new FileInputStream(fileName);
-            properties.load(inStream);
-            ret = properties.getProperty(key);
-        } catch (FileNotFoundException notFound) {
-            //File does not exist: print error message and write new file
-            System.err.println("Error while reading property: " + notFound.toString() + ". Creating new file named " + fileName + ".");
-            try {
+            if (!propertyFileExists()) {
                 File newFile = new File(fileName);
                 newFile.createNewFile();
                 //Continue with the recently created file
                 inStream = new FileInputStream(newFile);
-                properties.load(inStream);
-                ret = properties.getProperty(key);
-            } catch (IOException ioException) {
-                //Print IOException
-                System.err.println("Error while writing property: " + ioException.toString());
-                ioException.printStackTrace();
-            }
+            } else inStream = new FileInputStream(fileName);
+            properties.load(inStream);
+            ret = properties.getProperty(key);
         } catch (IOException ioException) {
             //Print IOException
             System.err.println("Error while reading property: " + ioException.toString());
@@ -114,5 +95,14 @@ public class PropertyHandler {
      */
     public Optional<String> getOptionalProperty(String key) {
         return Optional.of(getProperty(key));
+    }
+
+    /**
+     * Checks if fileName exists in the file directory
+     * @return false if file does not exist, true if it does
+     */
+    public boolean propertyFileExists() {
+        File file = new File(fileName);
+        return file.exists() && !file.isDirectory();
     }
 }
