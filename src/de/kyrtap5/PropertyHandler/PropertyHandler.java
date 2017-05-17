@@ -1,3 +1,5 @@
+package de.kyrtap5.PropertyHandler;
+
 import java.io.*;
 import java.util.Optional;
 import java.util.Properties;
@@ -9,7 +11,7 @@ public class PropertyHandler {
     private OutputStream outStream = null;
 
     /**
-     * Creates a new PropertyHandler for the given filename.
+     * Creates a new de.kyrtap5.PropertyHandler.PropertyHandler for the given filename.
      *
      * @param fileName The filename to be read or written on
      */
