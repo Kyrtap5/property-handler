@@ -125,7 +125,7 @@ public class PropertyHandler {
      */
     public byte getByte(String key) {
         String ret = getProperty(key);
-        return ret == null ? null : Byte.parseByte(key);
+        return ret == null ? null : Byte.parseByte(ret);
     }
 
     /**
@@ -135,7 +135,7 @@ public class PropertyHandler {
      */
     public short getShort(String key) {
         String ret = getProperty(key);
-        return ret == null ? null : Short.parseShort(key);
+        return ret == null ? null : Short.parseShort(ret);
     }
 
     /**
@@ -145,7 +145,7 @@ public class PropertyHandler {
      */
     public int getInt(String key) {
         String ret = getProperty(key);
-        return ret == null ? null : Integer.parseInt(key);
+        return ret == null ? null : Integer.parseInt(ret);
     }
 
     /**
@@ -155,7 +155,7 @@ public class PropertyHandler {
      */
     public long getLong(String key) {
         String ret = getProperty(key);
-        return ret == null ? null : Long.parseLong(key);
+        return ret == null ? null : Long.parseLong(ret);
     }
 
     /**
@@ -165,7 +165,7 @@ public class PropertyHandler {
      */
     public float getFloat(String key) {
         String ret = getProperty(key);
-        return ret == null ? null : Float.parseFloat(key);
+        return ret == null ? null : Float.parseFloat(ret);
     }
 
     /**
@@ -175,7 +175,7 @@ public class PropertyHandler {
      */
     public double getDouble(String key) {
         String ret = getProperty(key);
-        return ret == null ? null : Double.parseDouble(key);
+        return ret == null ? null : Double.parseDouble(ret);
     }
 
     /**
@@ -185,6 +185,6 @@ public class PropertyHandler {
      */
     public boolean getBoolean(String key) {
         String ret = getProperty(key);
-        return ret == null ? null : Boolean.parseBoolean(key);
+        return ret == null ? null : Boolean.parseBoolean(ret);
     }
 }
