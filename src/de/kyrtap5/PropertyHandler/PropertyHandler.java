@@ -12,7 +12,6 @@ public class PropertyHandler {
 
     /**
      * Creates a new PropertyHandler for the given filename.
-     *
      * @param fileName The filename to be read or written on
      */
     public PropertyHandler(String fileName) {
@@ -20,8 +19,7 @@ public class PropertyHandler {
     }
 
     /**
-     * Writes the given key under the give value in the property file
-     *
+     * Writes the given value under the given key in the property file.
      * @param key   The key to be written on
      * @param value The value to be saved
      */
@@ -53,8 +51,7 @@ public class PropertyHandler {
     }
 
     /**
-     * Gets a value from the property file under the given key, returns String
-     *
+     * Gets a value from the property file under the given key, returns String.
      * @param key The key storing the wanted value
      * @return The String value hashed under the given key, null if value was not found
      */
@@ -90,8 +87,7 @@ public class PropertyHandler {
     }
 
     /**
-     * Gets a value from the property file under the given key, returns Optional
-     *
+     * Gets a value from the property file under the given key, returns Optional.
      * @param key The key storing the wanted value
      * @return The value hashed under the given key, empty Optional if value was not found
      */
@@ -100,7 +96,7 @@ public class PropertyHandler {
     }
 
     /**
-     * Checks if fileName exists in the file directory
+     * Checks if fileName exists in the file directory.
      * @return false if file does not exist, true if it does
      */
     public boolean propertyFileExists() {
@@ -109,7 +105,7 @@ public class PropertyHandler {
     }
 
     /**
-     * Checks if fileName exists in the file directory
+     * Checks if fileName exists in the file directory.
      * @param fileName The filename to be checked
      * @return false if file does not exist, true if it does
      */
@@ -119,7 +115,7 @@ public class PropertyHandler {
     }
 
     /**
-     * Gets property value from key and returns it as a Byte
+     * Gets property value from key and returns it as a Byte.
      * @param key The key storing the wanted value
      * @return The byte value hashed under the given key, null if value was not found
      */
@@ -129,7 +125,16 @@ public class PropertyHandler {
     }
 
     /**
-     * Gets property value from key and returns it as a Short
+     * Writes the given Byte value under the given key in the property file.
+     * @param key   The key to be written on
+     * @param value The byte value to be saved
+     */
+    public void setByte(String key, byte value) {
+        setProperty(key, Byte.toString(value));
+    }
+
+    /**
+     * Gets property value from key and returns it as a Short.
      * @param key The key storing the wanted value
      * @return The short value hashed under the given key, null if value was not found
      */
@@ -139,7 +144,16 @@ public class PropertyHandler {
     }
 
     /**
-     * Gets property value from key and returns it as a Integer
+     * Writes the given Short value under the given key in the property file.
+     * @param key   The key to be written on
+     * @param value The short value to be saved
+     */
+    public void setShort(String key, short value) {
+        setProperty(key, Short.toString(value));
+    }
+
+    /**
+     * Gets property value from key and returns it as a Integer.
      * @param key The key storing the wanted value
      * @return The int value hashed under the given key, null if value was not found
      */
@@ -149,7 +163,16 @@ public class PropertyHandler {
     }
 
     /**
-     * Gets property value from key and returns it as a Long
+     * Writes the given Integer value under the given key in the property file.
+     * @param key   The key to be written on
+     * @param value The int value to be saved
+     */
+    public void setInt(String key, int value) {
+        setProperty(key, Integer.toString(value));
+    }
+
+    /**
+     * Gets property value from key and returns it as a Long.
      * @param key The key storing the wanted value
      * @return The long value hashed under the given key, null if value was not found
      */
@@ -159,7 +182,16 @@ public class PropertyHandler {
     }
 
     /**
-     * Gets property value from key and returns it as a Float
+     * Writes the given Long value under the given key in the property file.
+     * @param key   The key to be written on
+     * @param value The byte value to be saved
+     */
+    public void setLong(String key, long value) {
+        setProperty(key, Long.toString(value));
+    }
+
+    /**
+     * Gets property value from key and returns it as a Float.
      * @param key The key storing the wanted value
      * @return The float value hashed under the given key, null if value was not found
      */
@@ -169,7 +201,16 @@ public class PropertyHandler {
     }
 
     /**
-     * Gets property value from key and returns it as a Double
+     * Writes the given Float value under the given key in the property file.
+     * @param key   The key to be written on
+     * @param value The float value to be saved
+     */
+    public void setFloat(String key, float value) {
+        setProperty(key, Float.toString(value));
+    }
+
+    /**
+     * Gets property value from key and returns it as a Double.
      * @param key The key storing the wanted value
      * @return The double value hashed under the given key, null if value was not found
      */
@@ -179,12 +220,30 @@ public class PropertyHandler {
     }
 
     /**
-     * Gets property value from key and returns it as a Boolean
+     * Writes the given Double value under the given key in the property file.
+     * @param key   The key to be written on
+     * @param value The double value to be saved
+     */
+    public void setDouble(String key, double value) {
+        setProperty(key, Double.toString(value));
+    }
+
+    /**
+     * Gets property value from key and returns it as a Boolean.
      * @param key The key storing the wanted value
      * @return The boolean value hashed under the given key, null if value was not found
      */
     public boolean getBoolean(String key) {
         String ret = getProperty(key);
         return ret == null ? null : Boolean.parseBoolean(ret);
+    }
+
+    /**
+     * Writes the given Boolean value under the given key in the property file.
+     * @param key   The key to be written on
+     * @param value The boolean value to be saved
+     */
+    public void setBoolean(String key, boolean value) {
+        setProperty(key, Boolean.toString(value));
     }
 }
