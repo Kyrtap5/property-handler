@@ -11,7 +11,7 @@ public class PropertyHandler {
     private OutputStream outStream = null;
 
     /**
-     * Creates a new de.kyrtap5.PropertyHandler.PropertyHandler for the given filename.
+     * Creates a new PropertyHandler for the given filename.
      *
      * @param fileName The filename to be read or written on
      */
