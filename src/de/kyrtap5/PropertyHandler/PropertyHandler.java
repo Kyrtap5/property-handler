@@ -56,7 +56,7 @@ public class PropertyHandler {
      * Gets a value from the property file under the given key, returns String
      *
      * @param key The key storing the wanted value
-     * @return The value hashed under the given key, null if value was not found
+     * @return The String value hashed under the given key, null if value was not found
      */
     public String getProperty(String key) {
         String ret = null;
@@ -106,5 +106,85 @@ public class PropertyHandler {
     public boolean propertyFileExists() {
         File file = new File(fileName);
         return file.exists() && !file.isDirectory();
+    }
+
+    /**
+     * Checks if fileName exists in the file directory
+     * @param fileName The filename to be checked
+     * @return false if file does not exist, true if it does
+     */
+    public static boolean propertyFileExists(String fileName) {
+        File file = new File(fileName);
+        return file.exists() && !file.isDirectory();
+    }
+
+    /**
+     * Gets property value from key and returns it as a Byte
+     * @param key The key storing the wanted value
+     * @return The byte value hashed under the given key, null if value was not found
+     */
+    public byte getByte(String key) {
+        String ret = getProperty(key);
+        return ret == null ? null : Byte.parseByte(key);
+    }
+
+    /**
+     * Gets property value from key and returns it as a Short
+     * @param key The key storing the wanted value
+     * @return The short value hashed under the given key, null if value was not found
+     */
+    public short getShort(String key) {
+        String ret = getProperty(key);
+        return ret == null ? null : Short.parseShort(key);
+    }
+
+    /**
+     * Gets property value from key and returns it as a Integer
+     * @param key The key storing the wanted value
+     * @return The int value hashed under the given key, null if value was not found
+     */
+    public int getInt(String key) {
+        String ret = getProperty(key);
+        return ret == null ? null : Integer.parseInt(key);
+    }
+
+    /**
+     * Gets property value from key and returns it as a Long
+     * @param key The key storing the wanted value
+     * @return The long value hashed under the given key, null if value was not found
+     */
+    public long getLong(String key) {
+        String ret = getProperty(key);
+        return ret == null ? null : Long.parseLong(key);
+    }
+
+    /**
+     * Gets property value from key and returns it as a Float
+     * @param key The key storing the wanted value
+     * @return The float value hashed under the given key, null if value was not found
+     */
+    public float getFloat(String key) {
+        String ret = getProperty(key);
+        return ret == null ? null : Float.parseFloat(key);
+    }
+
+    /**
+     * Gets property value from key and returns it as a Double
+     * @param key The key storing the wanted value
+     * @return The double value hashed under the given key, null if value was not found
+     */
+    public double getDouble(String key) {
+        String ret = getProperty(key);
+        return ret == null ? null : Double.parseDouble(key);
+    }
+
+    /**
+     * Gets property value from key and returns it as a Boolean
+     * @param key The key storing the wanted value
+     * @return The boolean value hashed under the given key, null if value was not found
+     */
+    public boolean getBoolean(String key) {
+        String ret = getProperty(key);
+        return ret == null ? null : Boolean.parseBoolean(key);
     }
 }
