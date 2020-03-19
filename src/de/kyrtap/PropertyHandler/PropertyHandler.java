@@ -1,4 +1,4 @@
-package de.kyrtap5.PropertyHandler;
+package de.kyrtap.PropertyHandler;
 
 import java.io.*;
 import java.util.Optional;
